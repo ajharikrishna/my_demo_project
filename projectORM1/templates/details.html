@@ -1,0 +1,15 @@
+<html>
+<body>
+<form action="/savedetails/" method="post">
+    {% csrf_token %}
+<table align="center" border="2">
+
+    <tr><td><input type="number" name="accno" required placeholder="Account no"> </td></tr>
+    <tr><td><input type="text" name="name" required placeholder="name"> </td></tr>
+    <tr><td><input type="number" name="salary" required placeholder="Salary"> </td></tr>
+    <tr><th><button type="submit">save</button> </th></tr>
+
+</table>
+    </form>
+</body>
+</html>

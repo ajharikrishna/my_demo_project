@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html>
+<body>
+<table align="center" border="2">
+    <tr style="background-color: red"><td>Account no</td>
+    <td>NAME</td>
+    <td>Salary</td>
+    <td>update</td>
+    <td>delete</td></tr>
+
+    {% for x in acc %}
+     <tr><td>{{ x.accno }}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.salary}}</td>
+     <td>   <a href="{% url 'update' %}?update_id={{ x.accno }}" >
+
+           <img src="{% static 'images/global.png'  %}" height="40" width="40">
+       </a>
+
+       </td>
+
+         <form action="{% url 'delete'  %}" method="post">
+             {% csrf_token %}
+
+         <input type="hidden" name="del_accno" value="{{ x.accno }}">
+
+         <td><button type="submit">DELETE</button></td>
+
+        </form></tr>
+
+
+    {% endfor %}
+</table>
+</body>
+</html>
